@@ -1,0 +1,120 @@
+:root {
+  --rojo: #e50914;
+  --fondo: #011627;
+  --fuentePrincipal: 'Open Sans', sans-serif;
+  --fuenteSecundaria: 'Bebas Neue', sans-serif;
+  --blancoGris: #aaa;
+  --blanco: #fff;
+}
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; /* 1rem = 10px */
+}
+body {
+  /* background: var(--fondo); */
+  font-family: var(--fuentePrincipal);
+  font-size: 1.6rem;
+  line-height: 1.8;
+}
+h1,
+h2,
+h3 {
+  font-weight: 900;
+  /* margin: 2rem 0; */
+  padding: 0;
+}
+h1 {
+  font-size: 5rem;
+}
+h2 {
+  font-size: 4.6rem;
+}
+h3 {
+  font-size: 3rem;
+}
+a {
+  text-decoration: none;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+[class$='__container'] {
+  width: min(90%, 120rem);
+  margin: 0 auto;
+}
+
+.header {
+  padding: 1rem 0;
+}
+@media (min-width: 768px ){
+  .header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.header__logotipo {
+  font-family: var(--fuenteSecundaria);
+  font-weight: normal;
+  color: var(--rojo);
+  font-size: 3rem;
+  line-height: 1;
+}
+.header__navegacion {
+  display: flex;
+  flex-direction: column;
+  padding-top: 3rem;
+}
+@media (min-width: 768px ){
+  .header__navegacion {
+    padding-top: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+  }
+}
+.header__link {
+  color: var(--blancoGris);
+}
+.header__link:hover,
+.header__link--activo {
+  color: var(--blanco);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 Hero Video                                 */
+/* -------------------------------------------------------------------------- */
+.hero__container {
+  width: min(90% ,120rem);
+  border-radius: 1rem;
+  background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.973) 40%,
+      rgba(0, 0, 0, 0.733) 90%
+    ),
+    url(../img/3.png);
+  background-repeat: no-repeat;
+  background-size: 100%, 90rem;
+  background-position: top right;
+  padding: 5rem;
+  min-height: 40rem;
+  margin-bottom: 100rem;
+}
+  
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10rem;
+}
+.hero__content {
+  color: var(--blanco);
+}
+.hero__heading {
+  font-size: 3rem;
+}
+
+
