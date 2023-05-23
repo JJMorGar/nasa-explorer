@@ -1,101 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head data-theme="dark">
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>api nasa</title>
-    <!-- Normalize -->
-    <link rel="stylesheet" href="css/normalize.css" />
-    <!-- PicoCss -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
-    />
-    
-    <!-- Css general -->
-    <link rel="stylesheet" href="css/styles.css" />
-    <!-- Javascript -->
-    <script type="module" defer src="js/main.js"></script>
-    <!-- Fuentes de Google -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body data-theme="dark">
-    <header data-theme="dark" class="header">
-      <div class="header__container">
-        <h2 class="header__logotipo">PLANETS</h2>
 
-        <form id="busqueda" class="header__navegacion">
-          <input
-            class="header__search"
-            id="search"
-            name="search"
-            placeholder="Search"
-            value="super novas"
-          />
-          <button
-            class="button--form"
-            value="buscar"
-            style="width: 10rem; margin: 0"
-          >
-            Buscar
-          </button>
-        </form>
-      </div>
-    </header>
-    <main class="hero">
-      <div class="hero__container">
-        <div class="hero__grid">
-          <div class="hero__content">
-            <h3 class="hero__heading">NASA'S IMAGES</h3>
-            <p class="hero__descripccion">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti,
-              ea. Lorem, ipsum dolor.
-            </p>
-            <button class="button">ver mas</button>
-          </div>
+<head data-theme="dark">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>api nasa</title>
+  <!-- Normalize -->
+  <link rel="stylesheet" href="css/normalize.css" />
+  <!-- PicoCss -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+
+  <!-- Css general -->
+  <link rel="stylesheet" href="css/styles.css" />
+  <!-- Javascript -->
+  <script type="module" defer src="js/main.js"></script>
+  <!-- Fuentes de Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body data-theme="dark">
+  <header data-theme="dark" class="header">
+    <div class="header__container">
+      <h2 class="header__logotipo">PLANETS</h2>
+
+      <form id="busqueda" class="header__navegacion">
+        <input class="header__search" id="search" name="search" placeholder="Search" value="super novas" />
+        <button class="button--form" value="buscar" style="width: 10rem; margin: 0">
+          Buscar
+        </button>
+      </form>
+    </div>
+  </header>
+  <main class="hero">
+    <div class="hero__container">
+      <div class="hero__grid">
+        <div class="hero__content">
+          <h3 class="hero__heading">NASA'S IMAGES</h3>
+          <p class="hero__descripccion">
+            tendrás acceso a una extensa base de datos de imágenes y videos proporcionados directamente por la NASA.
+            Podrás sumergirte en la belleza de las galaxias, los planetas, las nebulosas y mucho más. Explora nuestro
+            vasto repositorio y maravíllate con las impresionantes imágenes capturadas por los telescopios espaciales y
+            las misiones espaciales de la NASA.
+          </p>
+          <button class="button">ver mas</button>
         </div>
       </div>
-    </main>
+    </div>
+  </main>
 
-    <section class="planets">
-      <div class="planets__container">
-        <div class="planets__grid">
-          <!-- <article class="planets__card"  style="">
+  <section class="planets">
+    <div class="planets__container">
+      <div class="planets__grid">
+        <!-- <article class="planets__card"  style="">
             <h3>titulo</h3>
             <p>descripccion Lorem ipsum dolor sit amet.</p>
             <button class="button">ver mas</button>
           </article>
            -->
-        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <dialog  data-theme="dark" id="modal-card">
-      <article class="modal">
-        <header>
-          <a id="modalClose" href="#close" aria-label="Close" class="close"></a>
-          Modal title
-        </header>
-        <body>
-          <video class="video-modal" width="420" height="240" controls>
-            <source id="video-url" src="https://images-assets.nasa.gov/video/ksc_062304_chandra/ksc_062304_chandra~orig.mp4" type="video/mp4" />
-          </video>
+  <dialog data-theme="dark" id="modal-card">
+    <article class="modal">
+      <header>
+        <a id="modalClose" href="#close" aria-label="Close" class="close"></a>
+        Modal title
+      </header>
 
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id ut
-            repellat nihil, quos magnam quisquam velit? Iusto reiciendis
-            inventore, quo velit perferendis beatae, optio, rerum architecto
-            quae sapiente quisquam laudantium expedita corporis blanditiis ex!
-            Maxime iure delectus facere laborum adipisci.
-          </p>
-        </body>
-      </article>
-    </dialog>
-  </body>
+      <body>
+        <video class="video-modal" width="420" height="240" controls>
+          <source id="video-url"
+            src="https://images-assets.nasa.gov/video/ksc_062304_chandra/ksc_062304_chandra~orig.mp4"
+            type="video/mp4" />
+        </video>
+
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id ut
+          repellat nihil, quos magnam quisquam velit? Iusto reiciendis
+          inventore, quo velit perferendis beatae, optio, rerum architecto
+          quae sapiente quisquam laudantium expedita corporis blanditiis ex!
+          Maxime iure delectus facere laborum adipisci.
+        </p>
+      </body>
+    </article>
+  </dialog>
+</body>
+
 </html>
