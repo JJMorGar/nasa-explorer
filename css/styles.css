@@ -20,7 +20,7 @@ h1,
 h2,
 h3 {
   font-weight: 900;
-  /* margin: 2rem 0; */
+  margin: 0;
   padding: 0;
 }
 h1 {
@@ -29,13 +29,12 @@ h1 {
 h2 {
   font-size: 4.6rem;
 }
-h3 {
-  font-size: 3rem;
+h3 {  
+  font-size: 1.6rem;
 }
-a {
-  text-decoration: none;
+p{
+  font-size: 1.6rem;
 }
-
 *,
 *:before,
 *:after {
@@ -47,39 +46,68 @@ a {
   margin: 0 auto;
 }
 
-.header {
-  padding: 1rem 0;
-}
-@media (min-width: 768px ){
+@media (min-width: 768px) {
   .header__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 2rem;
   }
+ 
 }
+.header__search {
+  margin: 0 !important ;
+  padding-right: 4rem;
+  font-size: 1.6rem;
+  position: relative;
+  border-radius: 1rem 0 0  1rem ;
+  height: 100% !important;
+}
+.header__search::before {
+  content: "asdas";
+  color: white;
+  position: absolute;
+  height: 100px;
+  width: 100px;
+}
+.header {
+  padding: 1rem 0;
+}
+
 .header__logotipo {
-  font-family: var(--fuenteSecundaria);
-  font-weight: normal;
-  color: var(--rojo);
-  font-size: 3rem;
-  line-height: 1;
+  /* font-family: var(--fuenteSecundaria); */
+  font-weight: 10px;
+  color: #a683e7;
+  font-size: 2.5rem;
+  padding: 0;
+  margin: 0;
 }
+.header__search {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
 .header__navegacion {
+  flex-basis: 70rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   padding-top: 3rem;
+  gap: 1rem;
+  margin: 0;
 }
-@media (min-width: 768px ){
+@media (min-width: 768px) {
   .header__navegacion {
     padding-top: 0;
     display: flex;
     flex-direction: row;
-    gap: 3rem;
+    align-items: center;
   }
 }
 .header__link {
   color: var(--blancoGris);
+  font-weight: bold;
 }
+
 .header__link:hover,
 .header__link--activo {
   color: var(--blanco);
@@ -88,23 +116,21 @@ a {
 /* -------------------------------------------------------------------------- */
 /*                                 Hero Video                                 */
 /* -------------------------------------------------------------------------- */
+.hero {
+  padding: 2em 0 5rem;
+}
 .hero__container {
-  width: min(90% ,120rem);
+  width: min(90%, 120rem);
   border-radius: 1rem;
-  background: linear-gradient(
-      to right,
-      rgba(0, 0, 0, 0.973) 40%,
-      rgba(0, 0, 0, 0.733) 90%
-    ),
-    url(../img/3.png);
+  background: linear-gradient(to right, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 100%),
+    url('https://i.pinimg.com/originals/2e/df/e3/2edfe3aac284a1f0872d7fb5b9cd90aa.gif');
   background-repeat: no-repeat;
-  background-size: 100%, 90rem;
-  background-position: top right;
+  background-size: 100%, 100rem;
+  background-position: center right;
   padding: 5rem;
   min-height: 40rem;
-  margin-bottom: 100rem;
 }
-  
+
 .hero__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -117,4 +143,50 @@ a {
   font-size: 3rem;
 }
 
+/* -------------------------------------------------------------------------- */
+/*                                   Planets                                  */
+/* -------------------------------------------------------------------------- */
 
+.planets__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 2rem;
+}
+.planets__card {
+  min-height: 35rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  margin: 0;
+  /* background-color: rgb(0, 0, 0); */
+  padding: 2.5rem;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.897) 50%,
+      rgba(0, 0, 0, 0.897) 50%
+    ),
+    url('https://images-assets.nasa.gov/image/PIA06907/PIA06907~thumb.jpg ');
+
+  background-position: center;
+  background-size: 100%, 50rem;
+  background-repeat: no-repeat;
+  /* border: solid 2px #ffffff31; */
+}
+.planets__card:hover {
+  border: solid 2px #474747;
+}
+
+.button {
+  margin-top: 5rem;
+  font-size:1.6rem;
+  font-weight: bold;
+  width: 15rem;
+}
+
+.button--form {
+  font-size: 1.5rem ;
+  font-weight: bold;
+}
+
+.planets__card h3 {
+  color: white;
+}

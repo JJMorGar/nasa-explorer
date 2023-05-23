@@ -7,10 +7,15 @@
     <title>api nasa</title>
     <!-- Normalize -->
     <link rel="stylesheet" href="css/normalize.css" />
+    <!-- PicoCss -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+    />
     <!-- Css general -->
     <link rel="stylesheet" href="css/styles.css" />
     <!-- Javascript -->
-    <script defer src="js/main.js"></script>
+    <script type="module" defer src="js/main.js"></script>
     <!-- Fuentes de Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,31 +23,34 @@
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
-
   </head>
   <body>
     <header class="header">
       <div class="header__container">
-        <h2 class="header__logotipo">Planets.org</h2>
-        <nav class="header__navegacion">
-          <a href="#" class="header__link header__link--activo">inicio</a>
-          <a href="#" class="header__link">programas</a>
-          <a href="#" class="header__link">peliculas</a>
-          <a href="#" class="header__link">mas recientes</a>
-          <a href="#" class="header__link">mi lista</a>
-        </nav>
+        <h2 class="header__logotipo">PLANETS</h2>
+
+        <form id="busqueda" class="header__navegacion">
+          <input
+            class="header__search"
+            id="search"
+            name="search"
+            placeholder="Search"
+            value="super novas"
+          />
+          <button  class="button--form" value="buscar" style="width: 10rem; margin: 0">Buscar</button>
+        </form>
       </div>
     </header>
     <main class="hero">
       <div class="hero__container">
         <div class="hero__grid">
           <div class="hero__content">
-            <h3 class="hero__heading">interestellar</h3>
+            <h3 class="hero__heading">NASA'S IMAGES</h3>
             <p class="hero__descripccion">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti,
               ea. Lorem, ipsum dolor.
             </p>
+            <button class="button">ver mas</button>
           </div>
         </div>
       </div>
@@ -51,9 +59,31 @@
     <section class="planets">
       <div class="planets__container">
         <div class="planets__grid">
-          
+          <!-- <article class="planets__card"  style="">
+            <h3>titulo</h3>
+            <p>descripccion Lorem ipsum dolor sit amet.</p>
+            <button class="button">ver mas</button>
+          </article>
+           -->
         </div>
       </div>
     </section>
+
+    <dialog>
+      <article>
+        <header>
+          <a href="#close" aria-label="Close" class="close"></a>
+          Modal title
+        </header>
+        <body>
+          <p>
+            Nunc nec ligula a tortor sollicitudin dictum in vel enim. Quisque
+            facilisis turpis vel eros dictum aliquam et nec turpis. Sed eleifend
+            a dui nec ullamcorper. Praesent vehicula lacus ac justo accumsan
+            ullamcorper.
+          </p>
+        </body>
+      </article>
+    </dialog>
   </body>
 </html>
