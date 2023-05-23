@@ -9,13 +9,27 @@ const $inputSeatch = $("#search");
 const $modalCard = $("#modal-card");
 const $videoCard = $("#video-url");
 
+
+
+
+
+
+
+
 $planets.addEventListener("click", async (e) => {
   const $element = e.target;
   if ($element.id === "button--card") {
     const idImg = $element.parentElement.id;
-    const api = `https://images-assets.nasa.gov/video/${idImg}/collection.json`;
-    const data = await (await fetch(api)).json();
-    const urlVideo = data.find((link) => {
+    const apiVideo = `https://images-assets.nasa.gov/video/${idImg}/collection.json`;
+    const apiDescripccion = `https://images-api.nasa.gov/search?q=${idImg}`
+    const data = await( await fetch(apiDescripccion)).json()
+    const {collection} = data
+    const {items} = collection
+    const {description} = items[0].data[0]
+    const {title} = items[0].data[0]
+
+    const dataVideo = await (await fetch(apiVideo)).json();
+    const urlVideo = dataVideo.find((link) => {
       console.log(link.split(".").at(-1));
       return link.split(".").at(-1) === "mp4";
     });
@@ -25,19 +39,14 @@ $planets.addEventListener("click", async (e) => {
       <article class="modal">
         <header>
           <a id="modalClose" href="#close" aria-label="Close" class="close"></a>
-          Modal title
+          ${title}
         </header>
         <body>
           <video class="video-modal" width="420" height="240" controls>
             <source id="video-url" src="${urlVideo}" type="video/mp4" />
           </video>
-
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id ut
-            repellat nihil, quos magnam quisquam velit? Iusto reiciendis
-            inventore, quo velit perferendis beatae, optio, rerum architecto
-            quae sapiente quisquam laudantium expedita corporis blanditiis ex!
-            Maxime iure delectus facere laborum adipisci.
+            ${description  || ""}
           </p>
         </body>
       </article>
