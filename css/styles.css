@@ -9,12 +9,14 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%; /* 1rem = 10px */
+  color: white;
+  background-color: var(--fondo);
 }
 body {
-  /* background: var(--fondo); */
   font-family: var(--fuentePrincipal);
   font-size: 1.6rem;
   line-height: 1.8;
+  color: white;
 }
 h1,
 h2,
@@ -22,6 +24,7 @@ h3 {
   font-weight: 900;
   margin: 0;
   padding: 0;
+  color: white;
 }
 h1 {
   font-size: 5rem;
@@ -34,11 +37,13 @@ h3 {
 }
 p{
   font-size: 1.6rem;
+  color: white;
 }
 *,
 *:before,
 *:after {
   box-sizing: inherit;
+
 }
 
 [class$='__container'] {
@@ -62,6 +67,7 @@ p{
   position: relative;
   border-radius: 1rem 0 0  1rem ;
   height: 100% !important;
+  color: white;
 }
 .header__search::before {
   content: "asdas";
@@ -161,8 +167,8 @@ p{
   padding: 2.5rem;
   background: linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 0.897) 50%,
-      rgba(0, 0, 0, 0.897) 50%
+      rgba(0, 0, 0, 0.635) 50%,
+      rgba(0, 0, 0, 0.635) 50%
     ),
     url('https://images-assets.nasa.gov/image/PIA06907/PIA06907~thumb.jpg ');
 
@@ -189,4 +195,18 @@ p{
 
 .planets__card h3 {
   color: white;
+}
+
+.modal {
+  /* width: 00rem; */
+  border: solid 1px rgba(255, 255, 255, 0.295);
+  border-radius: 1rem;
+}
+
+.video-modal{
+  height: 50rem;
+  width: 100%;
+  border-radius: 2rem;
+  margin-bottom: 2rem;
+  border: solid 1px rgba(255, 255, 255, 0.193);
 }

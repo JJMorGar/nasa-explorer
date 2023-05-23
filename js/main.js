@@ -1,64 +1,94 @@
-import { getImages } from "./services/planets.js"
-import { builtCard } from "./utils/cards.js"
+import { getImages } from "./services/planets.js";
+import { builtCard } from "./utils/cards.js";
 
-const $ = (element) => document.querySelector(element)
+const $ = (element) => document.querySelector(element);
 
-const $planets = $(".planets__grid")
-const $search = $("#busqueda")
-const $inputSeatch = $("#search")
+const $planets = $(".planets__grid");
+const $search = $("#busqueda");
+const $inputSeatch = $("#search");
+const $modalCard = $("#modal-card");
+const $videoCard = $("#video-url");
 
+$planets.addEventListener("click", async (e) => {
+  const $element = e.target;
+  if ($element.id === "button--card") {
+    const idImg = $element.parentElement.id;
+    const api = `https://images-assets.nasa.gov/video/${idImg}/collection.json`;
+    const data = await (await fetch(api)).json();
+    const urlVideo = data.find((link) => {
+      console.log(link.split(".").at(-1));
+      return link.split(".").at(-1) === "mp4";
+    });
 
-// document.addEventListener("DOMContentLoaded", ready);
-// TODO solo cargar las tarjetas por ahora
+    $modalCard.innerHTML = "";
+    $modalCard.innerHTML = `
+      <article class="modal">
+        <header>
+          <a id="modalClose" href="#close" aria-label="Close" class="close"></a>
+          Modal title
+        </header>
+        <body>
+          <video class="video-modal" width="420" height="240" controls>
+            <source id="video-url" src="${urlVideo}" type="video/mp4" />
+          </video>
+
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id ut
+            repellat nihil, quos magnam quisquam velit? Iusto reiciendis
+            inventore, quo velit perferendis beatae, optio, rerum architecto
+            quae sapiente quisquam laudantium expedita corporis blanditiis ex!
+            Maxime iure delectus facere laborum adipisci.
+          </p>
+        </body>
+      </article>
+    `;
+
+    $modalCard.showModal()
+  }
+});
+
+$modalCard.addEventListener("click", (e) => {
+  const $element = e.target;
+  if ($element.id === "modalClose") {
+    $modalCard.close();
+  }
+});
+
 $search.addEventListener("submit", async (e) => {
-  e.preventDefault()
-  const $card = document.createElement("aticle")
-  $card.classList.add("planets__card")
-  $card.innerHTML = `
-    <h3>titulo</h3>
-    <p>descripccion Lorem ipsum dolor sit amet.</p>
-    <button class="button">ver mas</button>
-  `
-  console.log($inputSeatch.value)
-  const { collection } = await getImages($inputSeatch.value)
-  const { items } = collection
+  e.preventDefault();
 
-  const dataImg = items.map((img) => {
-    const data = img.data[0]
-    const imagen = img.links[0].href
-    const { title } = data
-    const { nasa_id } = data
-    const { photographer } = data
+  const { collection } = await getImages($inputSeatch.value);
+  const { items } = collection;
 
-    const { description } = data
-    const { location } = data
-    const card = builtCard({ title, nasa_id, imagen, photographer,location })
-    return card
-  })
-  const videoPromises = items.map(async (img) => {
-    const data = img.data[0]
-    const { href } = img
-    const videos = await (await fetch(href)).json()
-    return videos[0]
-  })
+  const dataImgs = items.map(async (img) => {
+    // imagen data
+    const data = img.data[0];
+    const imagen = img.links[0].href;
+    const { title } = data;
+    const { nasa_id } = data;
+    const { photographer } = data;
+    const { description } = data;
+    const { location } = data;
 
+    // videos data
+    const { href } = img;
+    const videos = await (await fetch(href)).json();
 
-  // const videos = await Promise.all(videoPromises)
-  // console.log(videos);
-  // console.log(dataImg);
-  console.log("carga");
-  $planets.innerHTML = ""
-  $planets.append(
-    ...dataImg
-  )
-})
+    const dataImg = {
+      title,
+      nasa_id,
+      imagen,
+      photographer,
+      location,
+      description,
+      videos,
+    };
+    return dataImg;
+  });
 
+  const images = await Promise.all(dataImgs);
+  const imagesHtml = images.map((images) => builtCard(images));
 
-
-
-
-
-
-
-
-
+  $planets.innerHTML = "";
+  $planets.append(...imagesHtml);
+});

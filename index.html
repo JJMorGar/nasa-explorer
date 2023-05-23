@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+  <head data-theme="dark">
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,6 +12,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
     />
+    
     <!-- Css general -->
     <link rel="stylesheet" href="css/styles.css" />
     <!-- Javascript -->
@@ -24,8 +25,8 @@
       rel="stylesheet"
     />
   </head>
-  <body>
-    <header class="header">
+  <body data-theme="dark">
+    <header data-theme="dark" class="header">
       <div class="header__container">
         <h2 class="header__logotipo">PLANETS</h2>
 
@@ -37,7 +38,13 @@
             placeholder="Search"
             value="super novas"
           />
-          <button  class="button--form" value="buscar" style="width: 10rem; margin: 0">Buscar</button>
+          <button
+            class="button--form"
+            value="buscar"
+            style="width: 10rem; margin: 0"
+          >
+            Buscar
+          </button>
         </form>
       </div>
     </header>
@@ -69,18 +76,23 @@
       </div>
     </section>
 
-    <dialog>
-      <article>
+    <dialog  data-theme="dark" id="modal-card">
+      <article class="modal">
         <header>
-          <a href="#close" aria-label="Close" class="close"></a>
+          <a id="modalClose" href="#close" aria-label="Close" class="close"></a>
           Modal title
         </header>
         <body>
+          <video class="video-modal" width="420" height="240" controls>
+            <source id="video-url" src="https://images-assets.nasa.gov/video/ksc_062304_chandra/ksc_062304_chandra~orig.mp4" type="video/mp4" />
+          </video>
+
           <p>
-            Nunc nec ligula a tortor sollicitudin dictum in vel enim. Quisque
-            facilisis turpis vel eros dictum aliquam et nec turpis. Sed eleifend
-            a dui nec ullamcorper. Praesent vehicula lacus ac justo accumsan
-            ullamcorper.
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id ut
+            repellat nihil, quos magnam quisquam velit? Iusto reiciendis
+            inventore, quo velit perferendis beatae, optio, rerum architecto
+            quae sapiente quisquam laudantium expedita corporis blanditiis ex!
+            Maxime iure delectus facere laborum adipisci.
           </p>
         </body>
       </article>

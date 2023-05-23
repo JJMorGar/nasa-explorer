@@ -5,8 +5,8 @@ export const builtCard = ({ title, nasa_id, imagen, photographer, location }) =>
   $card.style = `
     background: linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 0.897) 50%,
-      rgba(0, 0, 0, 0.897) 50%
+      rgba(0, 0, 0, 0.635) 50%,
+      rgba(0, 0, 0, 0.635) 50%
     ),
     url('${imagen}');
     background-position: center;
@@ -19,7 +19,7 @@ export const builtCard = ({ title, nasa_id, imagen, photographer, location }) =>
     <h3>${title}</h3>
     <p>${photographer || ""}</p>
     <p>${location ? "location: " + location : ""}</p>
-    <button class="button">ver mas</button>
+    <button id="button--card" class="button">ver mas</button>
   `
   return $card
 }

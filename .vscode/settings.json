@@ -1,3 +1,6 @@
 {
-  "conventionalCommits.scopes": ["UI"]
+  "conventionalCommits.scopes": [
+    "UI"
+  ],
+  "liveServer.settings.port": 5501
 }
